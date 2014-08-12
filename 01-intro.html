@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<style>
+			p.project { margin-top: 20px; }
+			.reveal li { padding-bottom: 10px;}
+			li.counter { padding-left: 30px; margin-bottom: 20px; list-style-type: none; font-style: italic; }
+			.buffer p { padding-bottom: 15px; }
+			.gallery .holder { background-color: #fff; margin-top:25px; padding:10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+			.gallery .holder div { white-space: nowrap; text-align: center; margin-bottom:10px; }
+			.reveal section.gallery img { vertical-align: middle; max-width: 200px; max-height: 200px; background:none; box-shadow:none; border:none; margin:10px; }
+			section.grid div { width:33%; float:left; height: 220px; }
+			section.grid strong { display:block; }
+			.code code { font-size:25px; }
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>OpenStack</h1>
+					<h3>A Workshop Introduction</h3>
+					<p>
+						<small>Created by <a href="http://jamiehannaford.com">Jamie Hannaford</a> (<a href="http://twitter.com/jamiehannaford">@jamiehannaford</a>)</small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>What are we going to talk about today?</h2>
+					</section>
+					<section>
+						<h2>1. Introduction <br>and set up</h2><br>
+						<ul>
+							<li>What is cloud?</li>
+							<li>What is OpenStack?</li>
+							<li>What does it offer me?</li>
+							<li>How can I use it?</li>
+						</ul>
+					</section>
+					<section>
+						<h2>2. A Padawan's guide <br>to Object Storage</h2><br>
+						<ul>
+							<li>Authentication</li>
+							<li>Managing containers</li>
+							<li>Uploading files</li>
+							<li>Hosting static websites</li>
+						</ul>
+						<p class="project"><em>Project:</em> Hosting our Jekyll blog on OpenStack</p>
+					</section>
+					<section>
+						<h2>3. A Jedi's guide to Swift</h2>
+						<ul>
+							<li>Visibility and ACL</li>
+							<li>Temporary URLs</li>
+							<li>CDNs</li>
+							<li>Metadata</li>
+						</ul>
+						<p class="project"><em>Project:</em> Let's create our own Imgur</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Hi! I'm Jamie</h2>
+					</section>
+					<section>
+						<h3>Who am I?</h3>
+						<p>25-year old software developer</p>
+						<p>No CompSci training! I studied Chaucer...like a boss</p>
+						<p>Work in the Rackspace <a href="https://developer.rackspace.com">Developer Relations Group</a></p>
+					</section>
+					<section>
+						<h3>What do I do?</h3>
+						<p>Software and developer tools</p>
+						<p>Community outreach</p>
+						<p>Evangelising about OpenStack</p>
+					</section>
+					<section>
+						<h3>What do I care about?</h3>
+						<p>(FL)OSS! Not the dental kind<p>
+						<p>Improving tech diversity</p>
+						<p>Books, travel and learning</p>
+						<p>Ich auch lerne Deutsch!</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>What is cloud?</h2>
+						<img src="/static/openstack-converge/cows.jpg" />
+						<aside class="notes">
+							Carol Von Canon - Santa Gertudes Cattle<br>
+							<a href="https://www.flickr.com/photos/biggreymare/7030605035/in/photolist-dpo6k7-6zu2F3-bHgFWc-9CAZHg-h5CdHN-8nptd4-9fGeoS-a18XZu-jWEddN-9fGf3d-cKYjQQ-8oqRMV-rAYUg-cmbdby-nHK8pE-6zo7QA-82fDps-fXwg4v-8V47x7-gkgbs-djuJCY-8ACMBK-5MVCh-ge8iXs-9fD6vP-bws64E-8AFVXE-ehQfeS-4SR1qD-nNknFb-duj4co-dudnnn-9QA85n-ac6mzq-aand7j-cKYjzw-gjCxmm-mCZ5WX-bYxU69-dufJpx-nESJKh-8HTy5j-h61WCo-89e3no-bYBcyq-2dEbpp-89aMZi-duj4Rm-ekUv3N-8uxLvN/">Flickr</a>
+						</aside>
+					</section>
+					<section>
+						<h2>Not so much...</h2>
+						<img height="520" src="/static/openstack-converge/superpug.jpg" />
+					</section>
+					<section>
+						<ul>
+							<li>Distributed hardware across the globe</li>
+							<li class="counter">not just 1 server</li>
+							<li>Infrastructure is manipulated by APIs</li>
+							<li class="counter">not by a single hypervisor</li>
+							<li>Loads of cool services for different workloads</li>
+							<li class="counter">not just a basic Operating System</li>
+							<li>Horizontal scalability</li>
+							<li class="counter">not the option to add expensive hardware</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>What is OpenStack?</h2>
+						<ul>
+							<li>Open-source software project</li>
+							<li>Modules that provide cloud infrastructure</li>
+							<li>Written in Python: <a href="https://github.com/openstack">github.com/openstack</a></li>
+							<li>100% free!</li>
+							<li>Community driven and independently led</li>
+						</ul>
+					</section>
+					<section class="buffer">
+						<h2>Where does it come from?</h2>
+						<p>Created in 2010 out of a partership <br>between Rackspace and NASA</p>
+						<p>Needed a rapidly scalable software system<br> that could run clouds on standardized hardware</p>
+						<p>"Wow, you just wrote the code we were going to write."</p>
+						<p>Since September 2012, it's being run<br> by its own independent foundation</p>
+					</section>
+					<section class="gallery">
+						<h2>Who's using it?</h2>
+						<div class="holder">
+							<div>
+								<img src="/static/openstack-converge/redhat-logo.jpg" width="200" alt="RedHat" />
+								<img src="/static/openstack-converge/yahoo-logo.png" width="200" alt="Yahoo!" />
+								<img src="/static/openstack-converge/rackspace-logo.jpg" width="200" alt="Rackspace" />
+								<img src="/static/openstack-converge/suse-logo.png" width="200" alt="SUSE" />
+							</div>
+							<div>
+								<img src="/static/openstack-converge/cern-logo.jpg" width="200" alt="CERN" />
+								<img src="/static/openstack-converge/ibm-logo.svg" width="200" alt="IBM" />
+								<img src="/static/openstack-converge/hp-logo.svg" width="200" alt="HP" />
+								<img src="/static/openstack-converge/dell-logo.png" width="200" alt="Dell" />
+							</div>
+							<div>
+								<img src="/static/openstack-converge/cisco-logo.jpg" width="200" alt="Cisco" />
+								<img src="/static/openstack-converge/att-logo.svg" width="200" alt="AT&amp;T" />
+								<img src="/static/openstack-converge/intel-logo.svg" width="200" alt="Intel" />
+								<img src="/static/openstack-converge/nec-logo.svg" width="200" alt="NEC" />
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>What does it offer me?</h2>
+					</section>
+					<section class="grid">
+
+						<h2>Services!</h2>
+						<div>
+							<strong>Compute</strong>
+							<em>Servers, IP addresses, flavors, images</em>
+						</div>
+						<div>
+							<strong>File storage</strong>
+							<em>Containers, objects, metadata</em>
+						</div>
+						<div>
+							<strong>Networking</strong>
+							<em>Virtual networks, subnets, ports, security groups</em>
+						</div>
+						<div>
+							<strong>Block storage</strong>
+							<em>Hard disk storage</em>
+						</div>
+						<div>
+							<strong>Identity</strong>
+							<em>User management, API tokens, access</em>
+						</div>
+						<div>
+							<strong>Databases</strong>
+							<em>MySQL-optimized servers, databases, users</em>
+						</div>
+						<div>
+							<strong>Orchestration</strong>
+							<em>Software configuration, templates</em>
+						</div>
+						<div>
+							<strong>OS images</strong>
+							<em>Import and export of configured images, catalogs</em>
+						</div>
+						<div>
+							<strong>Cost management</strong>
+							<em>Monitor usage, set and trigger alarms</em>
+						</div>
+					</section>
+
+					<section>
+						<h3>But today we'll keep things simple</h3>
+						<br>
+						<p>༼ つ ◕◡◕ ༽つ</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>So how do I use OpenStack?</h2>
+						<p>Two ways!</p>
+					</section>
+					<section>
+						<h2>Get your username and password</h2>
+					</section>
+					<section>
+						<h2>1. Control Panel</h2>
+						<ol>
+							<li>Visit <a href="https://mycloud.rackspace.co.uk">mycloud.rackspace.co.uk</a></li>
+							<li>Enter username and password</li>
+							<li>Go to the "Files" tab at the top</li>
+						</ol>
+					</section>
+					<section class="code">
+						<h2>2. php-opencloud SDK</h2>
+						<code>
+							git clone https://github.com/jamiehannaford/openstack-converge-php
+						</code>
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
