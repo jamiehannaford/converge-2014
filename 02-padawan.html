@@ -16,6 +16,7 @@
 
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+		<link rel="stylesheet" href="css/stuff.css">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -30,20 +31,6 @@
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
-
-		<style>
-			p.project { margin-top: 20px; }
-			.reveal li { padding-bottom: 10px;}
-			li.counter { padding-left: 30px; margin-bottom: 20px; list-style-type: none; font-style: italic; }
-			.buffer p { padding-bottom: 15px; }
-			.gallery .holder { background-color: #fff; margin-top:25px; padding:10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
-			.gallery .holder div { white-space: nowrap; text-align: center; margin-bottom:10px; }
-			.reveal section.gallery img { vertical-align: middle; max-width: 200px; max-height: 200px; background:none; box-shadow:none; border:none; margin:10px; }
-			section.grid div { width:33%; float:left; height: 220px; }
-			section.grid strong { display:block; }
-			.code code { font-size:25px; }
-			.reveal pre code { padding: 0 20px; margin-top: 20px; }
-		</style>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -152,20 +139,170 @@ Content-Type: application/json
 
 				<section>
 					<section>
-						<h2>Terminology</h2>
+						<h2>Containers</h2>
 					</section>
 					<section>
-						<h3>Container</h3>
-						<p></p>
+						<h3>What are they?</h3>
+						<p>Organizational units of storage</p>
+						<p>Like <strong>unix directories</strong> or <strong>windows folders</strong></p>
+						<p>No nesting, although pseudo-directories!</p>
+						<p>Name restrictions: under 256 chars and no <span>/</span></p>
 					</section>
 					<section>
-						<h3>Object</h3>
-						<p></p>
+						<h3>Create a container</h3>
+						<div class="col cp">
+							<ol>
+								<li>Go to mycloud.rackspace.co.uk</li>
+								<li>Click the Files tab, then the <span>Create Container</span> button</li>
+								<li>Write your Container's name, select a region, select "Private"</li>
+								<li>Create it!</li>
+							</ol>
+						</div>
+						<div class="col php">
+							<h3></h3>
+							<ol>
+								<li>Open <span>01-create-container.php</span> in your text editor of choice</li>
+								<li>Include a name and region for your container</li>
+								<li>Run the script!</li>
+							</ol>
+						</div>
 					</section>
 					<section>
-						<h3>Content Delivery Network (CDN)</h3>
-						<p></p>
+						<h3>List all our containers</h3>
+						<div class="col cp">
+							<ol>
+								<li>Just refresh the page (⌐■_■)</li>
+							</ol>
+						</div>
+						<div class="col php">
+							<h3></h3>
+							<ol>
+								<li>Run <span>02-list-containers.php</span></li>
+								<li>Bonus points: open the file and try <em>filtering</em> containers using one of the supported query parameters. 
+									For example, you can filter names by prefix and return paginated collections.
+								</li>
+							</ol>
+						</div>
 					</section>
+					<section>
+						<h3>Check a container's details</h3>
+						<div class="col cp">
+							<ol>
+								<li>Find your container of choice</li>
+								<li>View the total files and total file size</li>
+								<li>Click on the cog to view links, CDN settings, logging</li>
+							</ol>
+						</div>
+						<div class="col php">
+							<h3></h3>
+							<ol>
+								<li>Edit <span>03-get-container.php</span> to include your container name. Then execute!</li>
+								<li>Bonus question: spot the difference between <span>getObject</span> and <span>getPartialObject</span>. 
+									How do they map to REST? Why would one be beneficial over another for a web app?
+								</li>
+							</ol>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Objects</h2>
+					</section>
+					<section>
+						<h3>What are they?</h3>
+						<p>Files!</p>
+						<p>CSS and JS assets</p>
+						<p>Logs</p>
+						<p>Animated gifs</p>
+						<p>Static HTML sites</p>
+					</section>
+					<section>
+						<h3>Upload a single object</h3>
+						<div class="col cp">
+							<ol>
+								<li>Click on your container name of choice</li>
+								<li>Use the <span>Upload Files</span> button to upload 1+ local things</li>
+								<li>Wait for them to upload and then bask in your glory</li>
+							</ol>
+						</div>
+						<div class="col php">
+							<h3></h3>
+							<ol>
+								<li>Edit <span>04-upload-object.php</span> to include your container name and the 
+									local path of the file you want to upload</li>
+								<li>Bonus question: you will notice that you're not providing a MIME type (it's detected by the API). 
+									How do you override this type guessing with your own custom <span>Content-Type</span>?</li>
+								<li>Uber bonus: Can you do the same sort of thing with other headers, like <span>Content-Disposition</span>?</li>
+							</ol>
+						</div>
+					</section>
+					<section>
+						<h3>Upload a directory</h3>
+						<div class="col cp">
+							<ol>
+								<li>Do the same as before, but select multiple files</li>
+								<li>Easy win ヽ(＾Д＾)ﾉ</li>
+							</ol>
+						</div>
+						<div class="col php">
+							<h3></h3>
+							<ol>
+								<li>Edit <span>05-upload-dir.php</span> to include your container name and the 
+									local path of the directory you want to upload</li>
+								<li>Bonus: what role do MD5 checksums play here? Hint: change the content of a file and execute the script again.</li>
+								<li>Uber bonus: Turn on HTTP logging to investigate the different scenarios for synchronization</li>
+							</ol>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Static websites</h2>
+					</section>
+					<section>
+						<h2>Jekyll</h2>
+						<img src="/static/openstack-converge/jekyll-hyde.jpg" />
+					</section>
+					<section>
+						<h2>The <em>Other</em> Jekyll</h2>
+						<p style="margin-bottom:40px;">Create a fully-functioning HTML blog out of markdown files</p>
+						<pre><code class="bash">
+jekyll build --source ./_posts --destination ./_site --watch
+						</code></pre>
+						<br>
+						<p>Yeah Ruby! ┏((＝￣(ｴ)￣=))┛</p>
+					</section>
+					<section>
+						<h3>Enable static websites</h3>
+						<div class="col cp">
+							<ol>
+								<li>Click on your container's cog, and make it public. Then select the "Enable" button</li>
+								<li>Bonus: what would a potential next step be (it's hinted at in the dialog)? Try and figure out a way to do that.</li>
+							</ol>
+						</div>
+						<div class="col php">
+							<h3></h3>
+							<ol>
+								<li>Edit <span>06-enable-website.php</span> to include your container name</li>
+								<li>Specify a custom index and error pages. Otherwise make sure <span>index.html</span>
+									and <span>error.html</span> exist</li>
+								<li>Bonus: since this is a CDN, we have a TTL. What are the downsides of this for a static blog? How can you get around this 
+									problem? Hint: reduce TTL or purge the cache.</li>
+							</ol>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<h2>Wrap-up!</h2>
+					<ol>
+						<li>Authentication</li>
+						<li>Managing containers</li>
+						<li>Uploading content</li>
+						<li>Using Swift for static websites</li>
+					</ol>
 				</section>
 
 			</div>

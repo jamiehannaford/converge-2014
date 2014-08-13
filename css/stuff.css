@@ -1,0 +1,16 @@
+h3, h2 { margin-bottom: 40px; }
+p.project { margin-top: 20px; }
+.reveal li { padding-bottom: 10px;}
+li.counter { padding-left: 30px; margin-bottom: 20px; list-style-type: none; font-style: italic; }
+.buffer p { padding-bottom: 15px; }
+.gallery .holder { background-color: #fff; margin-top:25px; padding:10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+.gallery .holder div { white-space: nowrap; text-align: center; margin-bottom:10px; }
+.reveal section.gallery img { vertical-align: middle; max-width: 200px; max-height: 200px; background:none; box-shadow:none; border:none; margin:10px; }
+section.grid div { width:33%; float:left; height: 220px; }
+section.grid strong { display:block; }
+.code code { font-size:25px; }
+.reveal pre code { padding: 0 20px; margin-top: 20px; }
+div.col { text-align:left; padding: 10px 20px; margin-bottom: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+div.col.cp { background-color: rgba(13,255,172,0.6); }
+div.col.php { background-color: rgba(167,159,250,0.7); }
+div.col span { font-weight: bold; font-family: monospace; }
