@@ -13,4 +13,4 @@ section.grid strong { display:block; }
 div.col { text-align:left; padding: 10px 20px; margin-bottom: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 div.col.cp { background-color: rgba(13,255,172,0.6); }
 div.col.php { background-color: rgba(167,159,250,0.7); }
-div.col span { font-weight: bold; font-family: monospace; }
+.reveal section span { font-weight: bold; font-family: monospace; }

@@ -4,14 +4,13 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>OpenStack Workshop 2</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Part 2 of my OpenStack workshop at Converge">
+		<meta name="author" content="Jamie Hannaford">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
@@ -54,11 +53,11 @@
 				<section>
 					<section>
 						<h2>Authentication</h2>
-						<p>In order to execute API operations, including <code>GET</code>ting or <code>POST</code>ing a resource, you need to authenticate first</p>
+						<p>In order to execute API operations, such as <span>GET</span>ting or <span>POST</span>ing a resource, you need to authenticate first</p>
 						<br>
-						<p>After providing your credentials, you get back a <em>token</em></p>
+						<p>After providing your username and password to the API, you get back a <em>token</em></p>
 						<br>
-						<p>You then send this token value in a <code>X-Auth-Token</code> header for every subsequent HTTP request</p>
+						<p>You then send this token value in a <span>X-Auth-Token</span> header for every subsequent HTTP request</p>
 					</section>
 					<section>
 						<h2>HTTP Request</h2>
@@ -76,6 +75,7 @@ Content-Type: application/json
   }
 }
 						</code></pre>
+						<p>Hostname is <span>lon.identity.api.rackspacecloud.com</span> for UK auth</p>
 					</section>
 					<section>
 						<h2>HTTP Response - Token</h2>
@@ -104,7 +104,7 @@ Content-Type: application/json
     "endpoints":[  
       {
         "region":"RegionOne",
-        "publicURL":"http://23.253.72.207:8774/v2/73f0aa26640f4971864919d0eb0f0880"
+        "publicURL":"http://23.253.72.207:8774/v2/73f0aa26"
       }
     ]
   },
@@ -114,7 +114,7 @@ Content-Type: application/json
     "endpoints":[  
       {
         "region":"RegionOne",
-        "publicURL":"http://23.253.72.207:8080/v1/AUTH_73f0aa26640f4971864919d0eb0f0880"
+        "publicURL":"http://23.253.72.207:8080/v1/AUTH_73f0a"
       }
     ]
   }
@@ -162,7 +162,7 @@ Content-Type: application/json
 							<h3></h3>
 							<ol>
 								<li>Open <span>01-create-container.php</span> in your text editor of choice</li>
-								<li>Include a name and region for your container</li>
+								<li>Include a name for your container</li>
 								<li>Run the script!</li>
 							</ol>
 						</div>
@@ -178,9 +178,7 @@ Content-Type: application/json
 							<h3></h3>
 							<ol>
 								<li>Run <span>02-list-containers.php</span></li>
-								<li>Bonus points: open the file and try <em>filtering</em> containers using one of the supported query parameters. 
-									For example, you can filter names by prefix and return paginated collections.
-								</li>
+								<li>Bonus activities!</li>
 							</ol>
 						</div>
 					</section>
@@ -197,9 +195,7 @@ Content-Type: application/json
 							<h3></h3>
 							<ol>
 								<li>Edit <span>03-get-container.php</span> to include your container name. Then execute!</li>
-								<li>Bonus question: spot the difference between <span>getObject</span> and <span>getPartialObject</span>. 
-									How do they map to REST? Why would one be beneficial over another for a web app?
-								</li>
+								<li>Bonus activities!</li>
 							</ol>
 						</div>
 					</section>
@@ -231,9 +227,7 @@ Content-Type: application/json
 							<ol>
 								<li>Edit <span>04-upload-object.php</span> to include your container name and the 
 									local path of the file you want to upload</li>
-								<li>Bonus question: you will notice that you're not providing a MIME type (it's detected by the API). 
-									How do you override this type guessing with your own custom <span>Content-Type</span>?</li>
-								<li>Uber bonus: Can you do the same sort of thing with other headers, like <span>Content-Disposition</span>?</li>
+								<li>Bonus activities!</li>
 							</ol>
 						</div>
 					</section>
@@ -250,8 +244,7 @@ Content-Type: application/json
 							<ol>
 								<li>Edit <span>05-upload-dir.php</span> to include your container name and the 
 									local path of the directory you want to upload</li>
-								<li>Bonus: what role do MD5 checksums play here? Hint: change the content of a file and execute the script again.</li>
-								<li>Uber bonus: Turn on HTTP logging to investigate the different scenarios for synchronization</li>
+								<li>Bonus activities!</li>
 							</ol>
 						</div>
 					</section>
@@ -288,8 +281,7 @@ jekyll build --source ./_posts --destination ./_site --watch
 								<li>Edit <span>06-enable-website.php</span> to include your container name</li>
 								<li>Specify a custom index and error pages. Otherwise make sure <span>index.html</span>
 									and <span>error.html</span> exist</li>
-								<li>Bonus: since this is a CDN, we have a TTL. What are the downsides of this for a static blog? How can you get around this 
-									problem? Hint: reduce TTL or purge the cache.</li>
+								<li>Bonus activities!</li>
 							</ol>
 						</div>
 					</section>
@@ -304,18 +296,12 @@ jekyll build --source ./_posts --destination ./_site --watch
 						<li>Using Swift for static websites</li>
 					</ol>
 				</section>
-
 			</div>
-
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
-
 		<script>
-
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				controls: true,
 				progress: true,
@@ -324,10 +310,6 @@ jekyll build --source ./_posts --destination ./_site --watch
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
@@ -339,8 +321,6 @@ jekyll build --source ./_posts --destination ./_site --watch
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
-
 		</script>
-
 	</body>
 </html>

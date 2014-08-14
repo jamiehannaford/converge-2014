@@ -250,6 +250,10 @@
 	{
 		"height": 112.0
 	},
+	"output.sftp":
+	{
+		"height": 100.0
+	},
 	"replace":
 	{
 		"height": 0.0
