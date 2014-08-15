@@ -52,17 +52,6 @@
 
 				<section>
 					<section>
-						<h2>Container visibility</h2>
-						<div class="col php">
-							<ol>
-								<li>Edit <span>07-cdn-assets.php</span></li>
-								<li>Execute the script and visit the outputted public URLs</li>
-								<li>Bonus: how can you store other media types on CDN? How would you access the optimized URLs for streaming/iOS media?</li>
-								<li>Uber bonus: how can you monitor traffic usage with CDN logs?</li>
-							</ol>
-						</div>
-					</section>
-					<section>
 						<h2>Role Based Access Control</h2>
 						<p>RBAC allows administrators to restrict API access to certain users</p>
 						<p>Each service (Nova, Swift) has a set of roles (write access, read-only access) that a user can be associated with</p>
@@ -73,6 +62,7 @@
 						<p>CORS is a mechanism that allows external users to access resources on another domain</p>
 						<p>For example, my-lovely-site.com would normally only be able to make HTTP requests (for CSS/JS/images) on that domain</p>
 						<p>In order for it to reference external resources (like images on Swift), we need to authorize that access</p>
+						<p>Just set <span>X-Container-Meta-Access-Control-Allow-Origin</span> header (explained later)</p>
 					</section>
 				</section>
 
@@ -81,10 +71,10 @@
 						<h2>Anonymous write access - FormPost</h2>
 						<div class="col php">
 							<ol>
-								<li>Edit <span>08-write-access.php</span></li>
-								<li>Set the account metadata key</li>
-								<li>Generate the HMAC</li>
-								<li>Generate the HTML form</li>
+								<li>Edit <span>07-set-secret.php</span> with your secret. Mine is special</li>
+								<li>Now that you have your secret key, generate your HMAC signature with the Python script</li>
+								<li>Enter all the necessary fields in <span>07-form.html</span></li>
+								<li>Cool for accepting user content without any backend code. You can also set an unlimited expiry.</li>
 							</ol>
 						</div>
 					</section>
@@ -93,10 +83,8 @@
 						<div class="col php">
 							<h3></h3>
 							<ol>
-								<li>Edit <span>09-read-access.php</span></li>
-								<li>Get the account metadata key</li>
-								<li>Generate the TempURL using previous HMAC</li>
-								<li>Display images!</li>
+								<li>Edit <span>08-read-access.php</span> with your container name</li>
+								<li>Also specify the expiry date and HTTP verb you're allowing</li>
 							</ol>
 						</div>
 					</section>
@@ -111,10 +99,9 @@
 						<h2>Delete After</h2>
 						<div class="col php">
 							<ol>
-								<li>Edit <span>10-metadata.php</span></li>
-								<li>Find the unix timestamp of a future date</li>
-								<li>Set the X-Delete-After</li>
-								<li>Tie to upvote and downvote</li>
+								<li>Edit <span>09-metadata.php</span> with your container and object of choice</li>
+								<li>Decide on when you want that object deleted</li>
+								<li>Set the <span>X-Delete-After</span> or <span>X-Delete-At</span> header</li>
 								<li>Bonus: set some arbitrary metadata values!</li>
 							</ol>
 						</div>
@@ -122,10 +109,16 @@
 				</section>
 
 				<section>
-					<h2>Tying everything together</h2>
-					<p>Checkout my page!</p>
+					<h2>Wrapping up</h2>
+					<ul>
+						<li>Container visibility</li>
+						<li>RBAC</li>
+						<li>CORS</li>
+						<li>Anonymous writes to a private container</li>
+						<li>Anonymous reads to a private container</li>
+						<li>Metadata</li>
+					</ul>
 				</section>
-
 			</div>
 		</div>
 
